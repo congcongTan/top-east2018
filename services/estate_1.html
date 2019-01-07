@@ -11,8 +11,46 @@
 <link rel="stylesheet" href="../css/all.css">
 <script src="../js/all.js"></script>
 
-<title>新闻中心 - 尚东控股</title>
+<title>尚东不动产 - 尚东控股</title>
 
+<style>
+.area_ul{
+  height: 35px;
+  border-bottom: 2px solid #e6e6e6;
+  font-size: 14px;
+}
+.area_ul li{
+  float: left;
+  list-style: none;
+  height: 35px;
+}
+.area_ul li:first-child{
+  margin-left: 0;
+}
+.area_ul li.active{
+  border-bottom: 3px solid #F7323F;
+  
+}
+.area_ul li.active a{
+  color: #F7323F;
+}
+@media(max-width: 768px){
+  .area_ul{
+    padding-left: 5px;
+  }
+  .area_ul li{
+    margin: 0 10px;
+  }
+}
+@media(min-width: 768px){
+  .area_ul{
+    padding-left: 0;
+  }
+  .area_ul li{
+    margin: 0 15px;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -44,7 +82,7 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="javascript:;" data-toggle="dropdown">产品服务</a>
+            <a href="javascript:;" data-toggle="dropdown" class="active">产品服务</a>
             <div class="dropdown-menu"></div>
             <ul class="dropdown-menu">
               <li><a href="../services/estate.html">尚东不动产</a></li>
@@ -53,7 +91,7 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="javascript:;" data-toggle="dropdown" class="active">新闻中心</a>
+            <a href="javascript:;" data-toggle="dropdown">新闻中心</a>
             <div class="dropdown-menu"></div>
             <ul class="dropdown-menu">
               <li><a href="../news/?sort=项目动态">项目动态</a></li>
@@ -97,88 +135,123 @@
       <div class="fl mr10"><img src="../img/where.gif" width="18"></div>
       <div class="fl mt2">
         <a href="../index">首页</a> &gt;
-        <a href="../news">新闻中心</a> &gt;
-        项目动态
+        <a href="../services">产品服务</a> &gt;
+        尚东不动产
       </div>
     </div>
 
     <div class="row">
 
-      <div class="col-sm-9 mb30 lh180 ld">
+      <div class="col-sm-9 mb30">
 
-        <img src="../img/news/title.jpg"><br>
+        <img src="http://api.lightuni.cn/topeast/upload/estate/1/title.jpg"><br>
         <br>
-        
-        <div class="f16 b">守正出奇 分坚并韧 红动番禺 ——大夫山 • 尚东完美收楼、逆市热销的秘密</div>
-        2018-01-03<br>
         <br>
 
-        今年9月，对大夫山项目的尚东人来说是异常忙碌的一个月，项目一期A2、A3栋收楼筹备、项目A8栋样板房筹备、国庆期间的销售及活动筹备等等事情都在紧锣密鼓地进行中。9月25日，项目突收集团通知：大夫山项目10月销售目标调整为2亿，国庆销售目标为1亿。这对项目组来说，无疑是一个巨大的挑战。<br>
-        <br>
+        <div class="clearfix">
+          <ul class="area_ul">
+            <li :class="{'active': list.post.state == ''}">
+              <a href="javascript:;" @click="list.post.state = ''">项目概述</a>
+            </li>
 
-        <img src="../img/tmp/news-view-1.jpg" width="100%"><br>
-        <br>
+            <li :class="{'active': list.post.state == '热销'}">
+              <a href="javascript:;" @click="list.post.state = '热销'">项目图片</a>
+            </li>
 
-        项目在收到集团通知后，马上组织营销团队召开会议，会议上大家确立了“守正出奇、分坚并韧”的战略思想，在保证收楼工作有条不紊进行的前提下，必须在国庆节前完成A8栋样板房软装进场并完成开放。同时，要充分发挥各代理团队的优势，确保国庆节完成集团公司下达的销售任务。<br>
-        <br>
+            <li :class="{'active': list.post.state == '售罄'}">
+              <a href="javascript:;" @click="list.post.state = '售罄'">项目户型</a>
+            </li>
 
-        <img src="../img/tmp/news-view-2.jpg" width="100%"><br>
-        <br>
+            <li :class="{'active': list.post.state == '在建'}">
+              <a href="javascript:;" @click="list.post.state = '在建'">园林景观</a>
+            </li>
 
-        秘密一：科学组织、合理安排、完美收楼<br>
-        <br>
+            <li :class="{'active': list.post.state == '在建'}">
+              <a href="javascript:;" @click="list.post.state = '在建'">样板观赏</a>
+            </li>
 
-        收楼工作从一开始就是项目的重中之重，项目公司从8月就开始筹备组织收楼工作，项目领导科学组织、合理安排，积极配合相关单位解决现场难题，所以虽然时间紧迫，收楼也是前期准备最完善的工作。<br>
-        <br>
+            <li :class="{'active': list.post.state == '在建'}">
+              <a href="javascript:;" @click="list.post.state = '在建'">区域位置</a>
+            </li>
+          </ul>
+        </div>
 
-        9月28日当天一大早，数位业主正在等候区排队领号签到，工作人员也在有条不紊地进行交房手续办理。虽然人很多，等待的时间不短，但每个人脸上都是笑意盈盈，洋溢着乔迁的喜悦。<br>
-        <br>
+        <div class="pr">
+          <div class="pa right20 bottom20"><a href="#"><img src="../img/icon/360.png"></a></div>
+          <img src="../img/tmp/estate-top.jpg" width="100%">
+        </div>
 
-        为了让业主们顺顺利利轻松收楼，现场的物业人员详尽地讲解着收楼流程和注意事项。新业主们在参观社区环境后，无论是对小区的园林绿化还是工程质量，都纷纷表示了赞可，称细节到位、设置合理。<br>
-        <br>
+        <br><br>
 
-        9月28日-10月8日期间，项目共签到191户，成功收楼174套，期间收楼率达91%。总体收楼完成率近八成，完满完成收楼任务。<br>
-        <br>
+        <div class="h35 lh35 mb15 f16 b red">
+          <div class="fl mr10"><img src="../img/icon/house.gif" height="35"></div>
+          项目简介及定位
+        </div>
 
-        <img src="../img/tmp/news-view-3.jpg" width="100%"><br>
-        <br>
+        <div class="ml45">
+          尚东·柏悦府（The Landmark)，一座蕴含尚东不动产创新与超越精神的扛鼎之作，占据着珠江新城最后一块住宅宝地，屹立于广州珠江新城CBD核心区，坐享万千繁华；汇聚“云山环绕、江天相接、中轴盛景、珠江公园、豪宅群景”等360度稀缺景观，是珠江新城核心CBD最后一个“收藏级”的住宅项目。<br>
+          <br>
 
-        秘密二：大胆创新、逆市突围、缔造销售传奇<br>
-        <br>
+          凭借得天独厚的地段优势，尚东·柏悦府一直致力于打造“稀缺·极致·收藏级”为核心的标杆性产品。
+        </div>
 
-        今年3月以来，随着限购令的升级加码，广州楼市亦由火热步入理性观望态势。在项目前期推售A6栋时，因再一次遭遇调控，销售情况未达预期。在这种情况下，如何能在逆市中突围而出，取得良好的销售业绩，这是营销部重点思考的问题。<br>
-        <br>
+        <br><br>
 
-        经过深入的市场调查和客户分析，营销部做出一个大胆的决定，提前推出A8栋新货，通过A8栋的热销带动A6栋销售。此时，A8栋样板房的推出就成为了重中之重了。<br>
-        <br>
+        <div class="h35 lh35 mb15 f16 b red">
+          <div class="fl mr10"><img src="../img/icon/project.gif" height="35"></div>
+          地理区位及配套
+        </div>
 
-        在项目公司领导的协调下，工程、设计、营销形成了一个紧密的团队，加班加点地对样板房硬软装进行赶工，终于在几个通宵的情况下在国庆节前完成了全新的样板房，并如期在国庆对外开放。<br>
-        <br>
+        <div class="ml45">
+          尚东·柏悦府位于广州CBD珠江新城的中轴核心，占据着珠江新城最后一块住宅宝地,珠江公园旁最后一个绝版的城央豪宅，不仅拥有最美风景线，还坐拥城市稀缺资源。<br>
+          <br>
 
-        <img src="../img/tmp/news-view-4.jpg" width="100%"><br>
-        <br>
+          项目交通网络四通八达，地段位置位于经济的中心，堪比纽约的曼哈顿中央区，拥有成熟的配套、大型的自然公园，是尚东集团倾力打造的全球华人地标建筑。
+        </div>
 
-当解决了样板房问题后，项目营销部在有限的时间里，积极主动地组织代理公司进行各项销售策划工作，创新性地使用“大兵团”作战模式，召集两个代理公司各条战线的精英协同作战，同时在短时间内实行立体宣传轰炸，持续性的把项目A8栋加推信息传递出去，保证了黄金周期间项目现场人气火爆，为国庆热销奠定了坚实的基础。<br>
-<br>
+        <br><br>
 
-在线上、线下以及渠道组合拳发力的情况下，A8栋产品一经推出，就吸引了大量番禺客户蜂拥而至，海珠、天河的客户也络绎不绝。销售中心几乎每天都座无虚席，人潮涌动。在国庆的最后一晚，仍然有很多客户久久不愿离去，期待能够购买到心仪的房子。<br>
-<br>
+        <div class="h35 lh35 mb15 f16 b red">
+          <div class="fl mr10"><img src="../img/icon/hu_xing.gif" height="35"></div>
+          建筑规模及户型设计
+        </div>
 
-皇天不负苦心人，国庆黄金周8天时间里，项目成交超百套，劲销超2.2亿，再一次缔造番禺楼市传奇，提前并超额完成集团公司下达的10月2亿的销售任务，成为国庆期间番禺区销冠项目。
+        <div class="ml45">
+          尚东·柏悦府项目占地面积约1.6000㎡，总建筑面积近10万㎡，总户数99套共52层。<br>
+          <br>
+
+          为了在这寸金寸土的珠江新城，留给城市更多的空间和缝隙，尚东·柏悦府在16000㎡ 的土地上， 建筑只用2800㎡ 占地，花园面积达到1.3万㎡，这在CBD里是不可想象的。而尚东·柏悦府在珠江新城一片方盒子建筑的沉闷中突围而出，筑造了198米全城最高人居高度。
+        </div>
 
       </div>
 
       <div class="col-sm-3 mb30">
 
-        <div class="pb5 bline bccc f16 b">新闻中心</div>
+        <div class="pb5 bline bccc f16 b">尚东不动产</div>
 
         <ul class="nav-side">
 
-          <li :class="{'active': getUrl('sort') == '项目动态'}"><a href="index.html?sort=项目动态">项目动态</a></li>
-          <li :class="{'active': getUrl('sort') == '集团新闻'}"><a href="index.html?sort=集团新闻">集团新闻</a></li>
-          <li :class="{'active': getUrl('sort') == '行业及媒体关注'}"><a href="index.html?sort=行业及媒体关注">行业及媒体关注</a></li>
-
+          <li>
+          	<a href="#">广州</a>
+          	<ul>
+	          <li><a href="#">尚东·柏悦府</a></li>
+	          <li><a href="#">尚东·数字谷</a></li>
+	          <li><a href="#">尚东·领御</a></li>
+	          <li><a href="#">荔城·尚东</a></li>
+	          <li><a href="#">尚东·We家</a></li>
+	          <li><a href="#">大夫山·尚东</a></li>
+          	</ul>
+          </li>
+          <li>
+          	<a href="#">北京</a>
+          </li>
+          <li>
+          	<a href="#">珠海</a>
+          </li>
         </ul>
+
+        <br><br><br><br><br><br><br>
+        (这个侧栏有待修正)
 
       </div>
 
@@ -300,6 +373,14 @@ var app = new Vue({
 		list: {},
 		a: {},
 
+    list: {
+      post: {
+        area: '',
+        type: '',
+        state: '',
+      }
+    }
+
   },
   methods: {
     aa: function(){
@@ -316,8 +397,42 @@ console.log('vue is ready')
 // $('#loading').hide()
 // $('#app').show()
 
+    if(getUrl('area') != undefined){
+      this.list.post.area = getUrl('area')
+    }
+    if(getUrl('type') != undefined){
+      this.list.post.type = getUrl('type')
+    }
+    if(getUrl('state') != undefined){
+      this.list.post.state = getUrl('state')
+    }
+
+    $.get(
+      api + 'estate',
+      {
+
+      },
+      function(re){
+        _this.list = re
+      },
+      'json'
+    )
+
+    /*鼠标事件*/
+    $('.item').hover(
+      function(){
+        $(this).children('.cover').stop().animate({'top': '0px'})
+        $(this).children('.cover').children('.text').children('.slogan').fadeIn()
+      },
+      function(){
+        $(this).children('.cover').stop().animate({'top': '155px'})
+        $(this).children('.cover').children('.text').children('.slogan').fadeOut()
+      }
+    )
+
   }
 });
 </script>
+
 </body>
 </html>

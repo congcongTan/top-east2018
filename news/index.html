@@ -13,6 +13,18 @@
 
 <title>新闻中心 - 尚东控股</title>
 
+<style>
+.item{
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.cover{
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
 
@@ -56,21 +68,21 @@
             <a href="javascript:;" data-toggle="dropdown" class="active">新闻中心</a>
             <div class="dropdown-menu"></div>
             <ul class="dropdown-menu">
-              <li><a href="../news/index.html?sort=项目动态">项目动态</a></li>
-              <li><a href="../news/index.html?sort=集团新闻">集团新闻</a></li>
-              <li><a href="../news/index.html?sort=行业及媒体关注">行业及媒体关注</a></li>
+              <li><a href="../news/?sort=项目动态">项目动态</a></li>
+              <li><a href="../news/?sort=集团新闻">集团新闻</a></li>
+              <li><a href="../news/?sort=行业及媒体关注">行业及媒体关注</a></li>
             </ul>
           </li>
           <li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown">社会责任</a>
             <div class="dropdown-menu"></div>
             <ul class="dropdown-menu shzy">
-              <li><a href="#">公益理念</a></li>
-              <li><a href="#">尚东基金会</a></li>
-              <li><a href="#">社会责任报告</a></li>
+              <li><a href="../duty">公益理念</a></li>
+              <li><a href="../duty/charity.html">尚东基金会</a></li>
+              <li><a href="../duty/report.html">社会责任报告</a></li>
             </ul>
           </li>
-          <li><a href="#../join/index.html">加入我们</a></li>
+          <li><a href="../join/index.html">加入我们</a></li>
           <li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown">产业资讯</a>
             <div class="dropdown-menu"></div>
@@ -91,7 +103,7 @@
 
   <div class="container hat">&nbsp;</div>
 
-  <div class="container bgfff" style="padding: 0 40px 20px">
+  <div class="container body">
 
     <div class="where">
       <div class="fl mr10"><img src="../img/where.gif" width="18"></div>
@@ -110,7 +122,22 @@
         <br>
         <br>
 
-        <a href="view.html?id=123"><img src="../img/tmp/news-list.jpg" width="100%"></a><br>
+        <div class="row item" v-for="i in 5">
+          <div class="col-sm-4 mb20">
+            <div class="cover"
+            style="background-image: url(http://top-east.com.cn/top-east/upload/news/2018-01-03/20180103152000_11966.jpg)"
+            onclick="location.href='view.html?id=123'"></div>
+          </div>
+          <div class="col-sm-8 mb20">
+            <div class="mb5 f16 b">
+              <a href="view.html?id=123">守正出奇 分坚并韧 红动番禺 ——大夫山 • 尚东完美收楼、逆市热销的秘密</a>
+            </div>
+            今年9月，对大夫山项目的尚东人来说是异常忙碌的一个月，项目一期A2、A3栋收楼筹备、项目A8栋样板房筹备、国庆期间的销售及活动筹备等等事情都在紧锣密鼓地进行中。9月25日，项目突收集团通知：大夫山项目10月销售目标调整为2亿，国庆销售目标为1亿。这对项目组来说，无疑是一个巨大的挑战<br>
+            <a href="view.html?id=123">查看详情 &gt;&gt;</a>
+          </div>
+        </div>
+
+        <!-- <a href="view.html?id=123"><img src="../img/tmp/news-list.jpg" width="100%"></a><br> -->
 
       </div>
 
@@ -120,9 +147,9 @@
 
         <ul class="nav-side">
 
-          <li class="active"><a href="index.html?sort=项目动态">项目动态</a></li>
-          <li><a href="index.html?sort=集团新闻">集团新闻</a></li>
-          <li><a href="index.html?sort=行业及媒体关注">行业及媒体关注</a></li>
+          <li :class="{'active': getUrl('sort') == '项目动态'}"><a href="index.html?sort=项目动态">项目动态</a></li>
+          <li :class="{'active': getUrl('sort') == '集团新闻'}"><a href="index.html?sort=集团新闻">集团新闻</a></li>
+          <li :class="{'active': getUrl('sort') == '行业及媒体关注'}"><a href="index.html?sort=行业及媒体关注">行业及媒体关注</a></li>
 
         </ul>
 
@@ -133,104 +160,104 @@
   </div>
 
 
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="hidden-xs hidden-sm col-sm-3 mb20">
-        <img src="../img/logo-foot.png">
-      </div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="hidden-xs hidden-sm col-sm-3 mb20">
+          <img src="../img/logo-foot.png">
+        </div>
 
-      <div class="col-sm-9 col-md-6">
+        <div class="col-sm-9 col-md-6">
 
-        <div class="row">
+          <div class="row">
 
-          <div class="col-xs-6 col-sm-3 mb20">
-            尚东控股
-            <div class="mt5 f14 white">
-              <a href="javascript:;">集团介绍</a><br>
-              <a href="javascript:;">尚东品牌</a><br>
-              <a href="javascript:;">尚东荣耀</a><br>
-              <a href="javascript:;">大事记</a><br>
+            <div class="col-xs-6 col-sm-3 mb20">
+              尚东控股
+              <div class="mt5 f14 white">
+                <a href="javascript:;">集团介绍</a><br>
+                <a href="javascript:;">尚东品牌</a><br>
+                <a href="javascript:;">尚东荣耀</a><br>
+                <a href="javascript:;">大事记</a><br>
+              </div>
+
             </div>
 
-          </div>
+            <div class="col-xs-6 col-sm-3 mb20">
 
-          <div class="col-xs-6 col-sm-3 mb20">
+              产品服务
+              <div class="mt5 f14 white">
+                <a href="hotel.html">尚东不动产</a><br>
+                <a href="net_bar.html">尚东创投</a><br>
+                <a href="logistics.html">尚东金服</a><br>
+                <br>
+              </div>
 
-            产品服务
-            <div class="mt5 f14 white">
-              <a href="hotel.html">尚东不动产</a><br>
-              <a href="net_bar.html">尚东创投</a><br>
-              <a href="logistics.html">尚东金服</a><br>
-              <br>
             </div>
 
-          </div>
+            <div class="col-xs-6 col-sm-3 mb20">
 
-          <div class="col-xs-6 col-sm-3 mb20">
+              社会责任
+              <div class="mt5 f14 white">
+                <a href="join.html">公益理念</a><br>
+                <a href="third_party.html">尚东基金会</a><br>
+                <a href="third_party.html">慈善捐赠</a><br>
+                <a href="third_party.html">社会责任报告</a><br>
+              </div>
 
-            社会责任
-            <div class="mt5 f14 white">
-              <a href="join.html">公益理念</a><br>
-              <a href="third_party.html">尚东基金会</a><br>
-              <a href="third_party.html">慈善捐赠</a><br>
-              <a href="third_party.html">社会责任报告</a><br>
             </div>
 
-          </div>
+            <div class="col-xs-6 col-sm-3 mb20">
 
-          <div class="col-xs-6 col-sm-3 mb20">
+              新闻中心
+              <div class="mt5 f14 white">
+                <a href="join.html">集团新闻</a><br>
+                <a href="third_party.html">楼盘动态</a><br>
+                <a href="third_party.html">媒体报道</a><br>
+                <br>
+              </div>
 
-            新闻中心
-            <div class="mt5 f14 white">
-              <a href="join.html">集团新闻</a><br>
-              <a href="third_party.html">楼盘动态</a><br>
-              <a href="third_party.html">媒体报道</a><br>
-              <br>
             </div>
 
           </div>
 
         </div>
 
+        <div class="col-xs-12 col-sm-3 mb20">
+
+          <div class="mb5">联系我们</div>
+
+          <div class="mt5 f14 white">
+            广州市天河区珠江新城<br>
+            兴民路222号天盈广场西塔22楼<br>
+            <i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;86-020-8751 6888<br>
+            <i class="fa fa-envelope"></i>&nbsp;&nbsp;example@top-east.com.cn<br>
+          </div>
+
+          <br>
+
+          <div class="mb5">关注我们</div>
+          <div class="white follow">
+
+            <a href="javascript:;"><i class="fa fa-qq"></i></a>
+
+            <a href="javascript:;"><i class="fa fa-weixin"></i></a>
+
+            <a href="javascript:;"><i class="fa fa-weibo"></i></a>
+
+          </div>
+
+        </div>
       </div>
 
-      <div class="col-xs-12 col-sm-3 mb20">
+      <br>
 
-        <div class="mb5">联系我们</div>
-
-        <div class="mt5 f14 white">
-          广州市天河区珠江新城<br>
-          兴民路222号天盈广场西塔22楼<br>
-          <i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;86-020-8751 6888<br>
-          <i class="fa fa-envelope"></i>&nbsp;&nbsp;example@top-east.com.cn<br>
-        </div>
-
-        <br>
-
-        <div class="mb5">关注我们</div>
-        <div class="white follow">
-
-          <a href="javascript:;"><i class="fa fa-qq"></i></a>
-
-          <a href="javascript:;"><i class="fa fa-weixin"></i></a>
-
-          <a href="javascript:;"><i class="fa fa-weibo"></i></a>
-
-        </div>
-
+      <div class="pull-right">
+        <a href="javascript:;">粤ICP备17048701号-2</a>
       </div>
+
+      Copyright &copy; 2010-2018 尚东控股 粤ICP备15029221号-1
     </div>
-
-    <br>
-
-    <div class="pull-right">
-      <a href="javascript:;">粤ICP备17048701号-2</a>
-    </div>
-
-    Copyright &copy; 2010-2018 尚东控股 粤ICP备15029221号-1
-  </div>
-</footer>
+  </footer>
 
 </div><!--app-->
 

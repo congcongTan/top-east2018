@@ -13,6 +13,84 @@
 
 <title>尚东不动产 - 尚东控股</title>
 
+<style>
+.area_title{
+  float: left;
+  padding: 3px 12px;
+  background-color: #F7323F;
+  color: #FFF;
+}
+.area_ul{
+  float: left;
+}
+.area_ul li{
+  float: left;
+  list-style: none;
+  padding: 3px 0 0px;
+}
+.area_ul li.active{
+  border-bottom: 3px solid #F7323F;
+  
+}
+.area_ul li.active a{
+  color: #F7323F;
+}
+@media(max-width: 768px){
+  .area_ul{
+    padding-left: 5px;
+  }
+  .area_ul li{
+    margin: 0 10px;
+  }
+}
+@media(min-width: 768px){
+  .area_ul{
+    padding-left: 15px;
+  }
+  .area_ul li{
+    margin: 0 15px;
+  }
+}
+
+.item{
+  display: block;
+  background-size: cover;
+  background-position: center;
+  margin: 0 0 1px 1px;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+.cover{
+  position: absolute;
+  top: 155px;
+  left: 0;
+  right: 0;
+  height: 200px;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, .5);
+}
+.cover .dot{
+  float: right;
+  margin-top: 3px;
+  padding: 3px 5px 5px;
+  background: #CCC;
+  border-radius: 3px;
+  line-height: 100%;
+  font-size: 12px;
+  color: #FFF;
+}
+.cover .dot.hot{
+  background: #F7323F;
+}
+.cover .text{
+  font-size: 16px;
+  color: #FFF;
+}
+.cover .slogan{
+  display: none;
+}
+</style>
 </head>
 <body>
 
@@ -56,21 +134,21 @@
             <a href="javascript:;" data-toggle="dropdown">新闻中心</a>
             <div class="dropdown-menu"></div>
             <ul class="dropdown-menu">
-              <li><a href="../news/index.html?sort=项目动态">项目动态</a></li>
-              <li><a href="../news/index.html?sort=集团新闻">集团新闻</a></li>
-              <li><a href="../news/index.html?sort=行业及媒体关注">行业及媒体关注</a></li>
+              <li><a href="../news/?sort=项目动态">项目动态</a></li>
+              <li><a href="../news/?sort=集团新闻">集团新闻</a></li>
+              <li><a href="../news/?sort=行业及媒体关注">行业及媒体关注</a></li>
             </ul>
           </li>
           <li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown">社会责任</a>
             <div class="dropdown-menu"></div>
             <ul class="dropdown-menu shzy">
-              <li><a href="#">公益理念</a></li>
-              <li><a href="#">尚东基金会</a></li>
-              <li><a href="#">社会责任报告</a></li>
+              <li><a href="../duty">公益理念</a></li>
+              <li><a href="../duty/charity.html">尚东基金会</a></li>
+              <li><a href="../duty/report.html">社会责任报告</a></li>
             </ul>
           </li>
-          <li><a href="#../join/index.html">加入我们</a></li>
+          <li><a href="../join/index.html">加入我们</a></li>
           <li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown">产业资讯</a>
             <div class="dropdown-menu"></div>
@@ -91,7 +169,7 @@
 
   <div class="container hat">&nbsp;</div>
 
-  <div class="container bgfff" style="padding: 0 40px 20px">
+  <div class="container body">
 
     <div class="where">
       <div class="fl mr10"><img src="../img/where.gif" width="18"></div>
@@ -106,7 +184,7 @@
 
       <div class="col-sm-8 mb30 ld">
 
-        <img src="../img/about/index/title.jpg"><br>
+        <img src="../img/services/estate/title.jpg"><br>
         <br>
 
         肩负城市居住人文建设的使命，秉承一群人荣耀一座城的理念，尚东人致力于在城市上流资源汇聚的地方，筑起一方天地，让一群不断向上的人，以一种不断向上的精神，优雅地聚居，在城市中，找到自己的精神归依！<br>
@@ -124,134 +202,219 @@
 
       <div class="col-sm-4 mb30">
 
-        <img src="../img/about/index/s1.gif" width="100%">
+        <img src="../img/services/estate/s1.gif" width="100%">
 
       </div>
 
     </div>
 
-    <div class="h35 lh35 f16 b red">
+    <div class="h35 lh35 f16 b red" id="project">
       <div class="fl mr10"><img src="../img/icon/house.gif" height="35"></div>
       不动产项目
     </div>
 
     <br>
 
-    <img src="../img/tmp/area.gif">
+    <div class="clearfix">
+      <div class="area_title">区域</div>
+      <ul class="area_ul">
+        <li :class="{'active': list.post.area == ''}">
+          <a href="javascript:;" @click="list.post.area = ''">全部</a>
+        </li>
 
-    <br><br>
+        <li :class="{'active': list.post.area == '广州'}">
+          <a href="javascript:;" @click="list.post.area = '广州'">广州</a>
+        </li>
 
-    <img src="../img/tmp/estate.jpg" width="100%">
+        <li :class="{'active': list.post.area == '北京'}">
+          <a href="javascript:;" @click="list.post.area = '北京'">北京</a>
+        </li>
 
-    <div class="row">
+        <li :class="{'active': list.post.area == '上海'}">
+          <a href="javascript:;" @click="list.post.area = '上海'">上海</a>
+        </li>
 
-      <div class="col-sm-4">
+        <li :class="{'active': list.post.area == '珠海'}">
+          <a href="javascript:;" @click="list.post.area = '珠海'">珠海</a>
+        </li>
 
-      </div>
-
+        <li :class="{'active': list.post.area == '佛山'}">
+          <a href="javascript:;" @click="list.post.area = '佛山'">佛山</a>
+        </li>
+      </ul>
     </div>
 
-  </div>
+    <div class="clearfix">
+      <div class="area_title">类型</div>
+      <ul class="area_ul">
+        <li :class="{'active': list.post.type == ''}">
+          <a href="javascript:;" @click="list.post.type = ''">全部</a>
+        </li>
 
+        <li :class="{'active': list.post.type == '住宅'}">
+          <a href="javascript:;" @click="list.post.type = '住宅'">住宅</a>
+        </li>
 
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="hidden-xs hidden-sm col-sm-3 mb20">
-        <img src="../img/logo-foot.png">
-      </div>
+        <li :class="{'active': list.post.type == '公寓'}">
+          <a href="javascript:;" @click="list.post.type = '公寓'">公寓</a>
+        </li>
 
-      <div class="col-sm-9 col-md-6">
+        <li :class="{'active': list.post.type == '园区'}">
+          <a href="javascript:;" @click="list.post.type = '园区'">园区</a>
+        </li>
 
-        <div class="row">
+        <li :class="{'active': list.post.type == '写字楼'}">
+          <a href="javascript:;" @click="list.post.type = '写字楼'">写字楼</a>
+        </li>
+      </ul>
+    </div>
 
-          <div class="col-xs-6 col-sm-3 mb20">
-            尚东控股
-            <div class="mt5 f14 white">
-              <a href="javascript:;">集团介绍</a><br>
-              <a href="javascript:;">尚东品牌</a><br>
-              <a href="javascript:;">尚东荣耀</a><br>
-              <a href="javascript:;">大事记</a><br>
-            </div>
+    <div class="clearfix">
+      <div class="area_title">状态</div>
+      <ul class="area_ul">
+        <li :class="{'active': list.post.state == ''}">
+          <a href="javascript:;" @click="list.post.state = ''">全部</a>
+        </li>
 
-          </div>
+        <li :class="{'active': list.post.state == '热销'}">
+          <a href="javascript:;" @click="list.post.state = '热销'">热销</a>
+        </li>
 
-          <div class="col-xs-6 col-sm-3 mb20">
+        <li :class="{'active': list.post.state == '售罄'}">
+          <a href="javascript:;" @click="list.post.state = '售罄'">售罄</a>
+        </li>
 
-            产品服务
-            <div class="mt5 f14 white">
-              <a href="hotel.html">尚东不动产</a><br>
-              <a href="net_bar.html">尚东创投</a><br>
-              <a href="logistics.html">尚东金服</a><br>
-              <br>
-            </div>
-
-          </div>
-
-          <div class="col-xs-6 col-sm-3 mb20">
-
-            社会责任
-            <div class="mt5 f14 white">
-              <a href="join.html">公益理念</a><br>
-              <a href="third_party.html">尚东基金会</a><br>
-              <a href="third_party.html">慈善捐赠</a><br>
-              <a href="third_party.html">社会责任报告</a><br>
-            </div>
-
-          </div>
-
-          <div class="col-xs-6 col-sm-3 mb20">
-
-            新闻中心
-            <div class="mt5 f14 white">
-              <a href="join.html">集团新闻</a><br>
-              <a href="third_party.html">楼盘动态</a><br>
-              <a href="third_party.html">媒体报道</a><br>
-              <br>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="col-xs-12 col-sm-3 mb20">
-
-        <div class="mb5">联系我们</div>
-
-        <div class="mt5 f14 white">
-          广州市天河区珠江新城<br>
-          兴民路222号天盈广场西塔22楼<br>
-          <i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;86-020-8751 6888<br>
-          <i class="fa fa-envelope"></i>&nbsp;&nbsp;example@top-east.com.cn<br>
-        </div>
-
-        <br>
-
-        <div class="mb5">关注我们</div>
-        <div class="white follow">
-
-          <a href="javascript:;"><i class="fa fa-qq"></i></a>
-
-          <a href="javascript:;"><i class="fa fa-weixin"></i></a>
-
-          <a href="javascript:;"><i class="fa fa-weibo"></i></a>
-
-        </div>
-
-      </div>
+        <li :class="{'active': list.post.state == '在建'}">
+          <a href="javascript:;" @click="list.post.state = '在建'">在建</a>
+        </li>
+      </ul>
     </div>
 
     <br>
 
-    <div class="pull-right">
-      <a href="javascript:;">粤ICP备17048701号-2</a>
+    <div class="clearfix" style="margin-left: -1px">
+
+      <div class="col-xs-6 col-sm-4 col-md-3 pl0 pr0" v-for="i in 16"
+      >
+        <a class="item"
+        :style="`background-image: url(http://api.lightuni.cn/topeast/upload/estate/${i}/icon.jpg)`"
+        href="estate_1.html?id=123">
+          <div class="cover">
+            <div class="dot hot">热销</div>
+            <span class="text">
+              <div class="title">尚东 大夫山</div>
+              <div class="slogan">第二行文字</div>
+            </span>
+          </div>
+        </a>
+
+      </div>
+
     </div>
 
-    Copyright &copy; 2010-2018 尚东控股 粤ICP备15029221号-1
+    <br><br>
+
   </div>
-</footer>
+
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="hidden-xs hidden-sm col-sm-3 mb20">
+          <img src="../img/logo-foot.png">
+        </div>
+
+        <div class="col-sm-9 col-md-6">
+
+          <div class="row">
+
+            <div class="col-xs-6 col-sm-3 mb20">
+              尚东控股
+              <div class="mt5 f14 white">
+                <a href="javascript:;">集团介绍</a><br>
+                <a href="javascript:;">尚东品牌</a><br>
+                <a href="javascript:;">尚东荣耀</a><br>
+                <a href="javascript:;">大事记</a><br>
+              </div>
+
+            </div>
+
+            <div class="col-xs-6 col-sm-3 mb20">
+
+              产品服务
+              <div class="mt5 f14 white">
+                <a href="hotel.html">尚东不动产</a><br>
+                <a href="net_bar.html">尚东创投</a><br>
+                <a href="logistics.html">尚东金服</a><br>
+                <br>
+              </div>
+
+            </div>
+
+            <div class="col-xs-6 col-sm-3 mb20">
+
+              社会责任
+              <div class="mt5 f14 white">
+                <a href="join.html">公益理念</a><br>
+                <a href="third_party.html">尚东基金会</a><br>
+                <a href="third_party.html">慈善捐赠</a><br>
+                <a href="third_party.html">社会责任报告</a><br>
+              </div>
+
+            </div>
+
+            <div class="col-xs-6 col-sm-3 mb20">
+
+              新闻中心
+              <div class="mt5 f14 white">
+                <a href="join.html">集团新闻</a><br>
+                <a href="third_party.html">楼盘动态</a><br>
+                <a href="third_party.html">媒体报道</a><br>
+                <br>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-3 mb20">
+
+          <div class="mb5">联系我们</div>
+
+          <div class="mt5 f14 white">
+            广州市天河区珠江新城<br>
+            兴民路222号天盈广场西塔22楼<br>
+            <i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;86-020-8751 6888<br>
+            <i class="fa fa-envelope"></i>&nbsp;&nbsp;example@top-east.com.cn<br>
+          </div>
+
+          <br>
+
+          <div class="mb5">关注我们</div>
+          <div class="white follow">
+
+            <a href="javascript:;"><i class="fa fa-qq"></i></a>
+
+            <a href="javascript:;"><i class="fa fa-weixin"></i></a>
+
+            <a href="javascript:;"><i class="fa fa-weibo"></i></a>
+
+          </div>
+
+        </div>
+      </div>
+
+      <br>
+
+      <div class="pull-right">
+        <a href="javascript:;">粤ICP备17048701号-2</a>
+      </div>
+
+      Copyright &copy; 2010-2018 尚东控股 粤ICP备15029221号-1
+    </div>
+  </footer>
 
 </div><!--app-->
 
@@ -266,6 +429,14 @@ var app = new Vue({
     		loading: 0,
 		list: {},
 		a: {},
+
+    list: {
+      post: {
+        area: '',
+        type: '',
+        state: '',
+      }
+    }
 
   },
   methods: {
@@ -282,6 +453,39 @@ console.log('vue is ready')
 // 显示主体
 // $('#loading').hide()
 // $('#app').show()
+
+    if(getUrl('area') != undefined){
+      this.list.post.area = getUrl('area')
+    }
+    if(getUrl('type') != undefined){
+      this.list.post.type = getUrl('type')
+    }
+    if(getUrl('state') != undefined){
+      this.list.post.state = getUrl('state')
+    }
+
+    $.get(
+      api + 'estate',
+      {
+
+      },
+      function(re){
+        _this.list = re
+      },
+      'json'
+    )
+
+    /*鼠标事件*/
+    $('.item').hover(
+      function(){
+        $(this).children('.cover').stop().animate({'top': '0px'})
+        $(this).children('.cover').children('.text').children('.slogan').fadeIn()
+      },
+      function(){
+        $(this).children('.cover').stop().animate({'top': '155px'})
+        $(this).children('.cover').children('.text').children('.slogan').fadeOut()
+      }
+    )
 
   }
 });
