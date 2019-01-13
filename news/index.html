@@ -14,7 +14,7 @@
 <title>新闻中心 - 尚东控股</title>
 
 <style>
-.item{
+/*.item{
   margin-bottom: 30px;
   border-bottom: 1px solid #e6e6e6;
 }
@@ -23,6 +23,15 @@
   background-position: center;
   height: 180px;
   cursor: pointer;
+}*/
+
+#list{
+  margin: 0 -5px;
+}
+.item{
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 </style>
 </head>
@@ -52,7 +61,7 @@
               <li><a href="../about/brand.html">尚东品牌</a></li>
               <li><a href="../about/culture.html">尚东文化</a></li>
               <li><a href="../about/honour.html">尚东荣耀</a></li>
-              <li><a href="../about/events.html">大事记</a></li>
+              <li><a href="../about/events.html">大事纪</a></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -122,22 +131,36 @@
         <br>
         <br>
 
-        <div class="row item" v-for="i in 5">
-          <div class="col-sm-4 mb20">
-            <div class="cover"
-            style="background-image: url(http://top-east.com.cn/top-east/upload/news/2018-01-03/20180103152000_11966.jpg)"
-            onclick="location.href='view.html?id=123'"></div>
-          </div>
-          <div class="col-sm-8 mb20">
-            <div class="mb5 f16 b">
-              <a href="view.html?id=123">守正出奇 分坚并韧 红动番禺 ——大夫山 • 尚东完美收楼、逆市热销的秘密</a>
-            </div>
-            今年9月，对大夫山项目的尚东人来说是异常忙碌的一个月，项目一期A2、A3栋收楼筹备、项目A8栋样板房筹备、国庆期间的销售及活动筹备等等事情都在紧锣密鼓地进行中。9月25日，项目突收集团通知：大夫山项目10月销售目标调整为2亿，国庆销售目标为1亿。这对项目组来说，无疑是一个巨大的挑战<br>
-            <a href="view.html?id=123">查看详情 &gt;&gt;</a>
+        <div class="clearfix" id="list">
+          <div class="item" v-for="i in 16">
+              <a href="view.html?id=123">
+                <img :src="`../img/tmp/news/${i}.jpg`" width="100%">
+                <div class="mt8">
+                  <div class="f14 b">新时代，新使命，新担当丨集团董事局主席郭泽伟出席粤港澳大湾区促进合作论坛</div>
+                  <div class="mt5 f12 gray clamp clamp-3">2019年1月11日，以“新时代，新使命，新担当”为主题的粤港澳大湾区促进合作论坛，在广州番禺科尔海悦酒店圆满举行。中国侨联副主席、广东省侨联主席黎静，中国侨联经济科技部巡视员、中国侨商联合会秘书长安晨，广东省侨联副主席、广东国际华商会会长、尚东控股集团董事局主席郭泽伟，香港一带一路发展联会主席戴景峰等出席会议。香港特区政府驻粤办、埃塞俄比亚驻广州领事馆、省工商联、省社科院、全国各省市侨联、侨商会等有关部门负责人，来自海内外知名华商、华商组织代表以及华商会会员代表、香港一带一路发展联会理事会成员等400余人参加了会议。</div>
+                  <div class="mt10 tr text-danger">了解更多 <i class="fa fa-arrow-circle-right"></i></div>
+                </div>
+              </a>
           </div>
         </div>
 
-        <!-- <a href="view.html?id=123"><img src="../img/tmp/news-list.jpg" width="100%"></a><br> -->
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li class="active"><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
 
       </div>
 
@@ -174,11 +197,10 @@
             <div class="col-xs-6 col-sm-3 mb20">
               尚东控股
               <div class="mt5 f14 white">
-                <a href="../about/index.html">集团介绍</a><br>
-                <a href="../about/brand.html">尚东品牌</a><br>
-                <a href="../about/culture.html">尚东文化</a><br>
-                <a href="../about/honour.html">尚东荣耀</a><br>
-                <a href="../about/events.html">大事记</a><br>
+                <a href="javascript:;">集团介绍</a><br>
+                <a href="javascript:;">尚东品牌</a><br>
+                <a href="javascript:;">尚东荣耀</a><br>
+                <a href="javascript:;">大事记</a><br>
               </div>
 
             </div>
@@ -187,9 +209,9 @@
 
               产品服务
               <div class="mt5 f14 white">
-                <a href="../services/estate.html">尚东不动产</a><br>
-                <a href="../services/venture_capital.html">尚东创投</a><br>
-                <a href="../services/gold_suit.html">尚东金服</a><br>
+                <a href="hotel.html">尚东不动产</a><br>
+                <a href="net_bar.html">尚东创投</a><br>
+                <a href="logistics.html">尚东金服</a><br>
                 <br>
               </div>
 
@@ -199,9 +221,10 @@
 
               社会责任
               <div class="mt5 f14 white">
-                <a href="../duty/">公益理念</a><br>
-                <a href="../duty/charity.html">尚东基金会</a><br>
-                <a href="../duty/report.html">社会责任报告</a><br>
+                <a href="join.html">公益理念</a><br>
+                <a href="third_party.html">尚东基金会</a><br>
+                <a href="third_party.html">慈善捐赠</a><br>
+                <a href="third_party.html">社会责任报告</a><br>
               </div>
 
             </div>
@@ -210,9 +233,9 @@
 
               新闻中心
               <div class="mt5 f14 white">
-                <a href="../news/?sort=项目动态">项目动态</a><br>
-                <a href="../news/?sort=集团新闻">集团新闻</a><br>
-                <a href="../news/?sort=行业及媒体关注">行业及媒体关注</a><br>
+                <a href="join.html">集团新闻</a><br>
+                <a href="third_party.html">楼盘动态</a><br>
+                <a href="third_party.html">媒体报道</a><br>
                 <br>
               </div>
 
@@ -230,7 +253,7 @@
             广州市天河区珠江新城<br>
             兴民路222号天盈广场西塔22楼<br>
             <i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;86-020-8751 6888<br>
-            <i class="fa fa-envelope"></i>&nbsp;&nbsp;example@top-east.com.cn<br>
+            <i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="mailto:jwzy_hr@163.com">jwzy_hr@163.com</a><br>
           </div>
 
           <br>
@@ -265,6 +288,7 @@
 
 </div>
 
+<script src="../plugin/mansory/mansory.js"></script>
 <script>
 var app = new Vue({
   el: '#app',
@@ -288,6 +312,23 @@ console.log('vue is ready')
 // 显示主体
 // $('#loading').hide()
 // $('#app').show()
+
+      $("#list").mpmansory(
+        {
+          childrenClass: 'item', // default is a div
+          columnClasses: 'pl5 pr5', //add classes to items
+          breakpoints:{
+            lg: 4, 
+            md: 6, 
+            sm: 6,
+            xs: 12
+          },
+          distributeBy: { order: false, height: false, attr: 'data-order', attrOrder: 'asc' }, //default distribute by order, options => order: true/false, height: true/false, attr => 'data-order', attrOrder=> 'asc'/'desc'
+          onload: function (items) {
+            //make somthing with items
+          } 
+        }
+      );
 
   }
 });
